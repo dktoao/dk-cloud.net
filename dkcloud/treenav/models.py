@@ -14,7 +14,7 @@ class TreeNav(MP_Node):
     content = models.TextField()
     link = models.URLField(max_length=1000, blank=True)
     direct_link = models.BooleanField(default=False)
-    requires_auth = models.BooleanField()
+    requires_auth = models.BooleanField(default=False)
     auth_groups = models.ManyToManyField(Group, blank=True)
     
     def has_node_access(node, user):

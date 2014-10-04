@@ -27,12 +27,13 @@ class TreeNavAccessMixin(object):
 
                     if not (len(request.user.groups.all() & node.auth_groups.all()) > 0
                             or request.user.is_superuser):
-                        print("Group Test: {}".format(len(request.user.groups.all() & node.auth_groups.all()) < 1))
-                        print("Superuser Test: {}".format(not request.user.is_superuser))
-                        print("Should have access?: {}".format(
-                            len(request.user.groups.all() & node.auth_groups.all()) < 1 or \
-                            not request.user.is_superuser
-                        ))
+                        #TODO: Delete this if it doesn't start raising issues
+                        #print("Group Test: {}".format(len(request.user.groups.all() & node.auth_groups.all()) < 1))
+                        #print("Superuser Test: {}".format(not request.user.is_superuser))
+                        #print("Should have access?: {}".format(
+                        #    len(request.user.groups.all() & node.auth_groups.all()) < 1 or \
+                        #    not request.user.is_superuser
+                        #))
                         raise PermissionDenied
             else:
                 kwargs['node'] = None
