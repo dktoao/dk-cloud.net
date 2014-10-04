@@ -29,7 +29,7 @@ def contact_page(request, contact_template, message_template, mail_list, mail_fr
                 Email: {3}\n
                 Phone: {4}\n
             '''.format(message, name, request.user.username, email, phone_number)
-            send_mail('DK Cloud Contact: ' + name, message, mail_from, mail_list)
+            send_mail('DK Cloud Contact: ' + name, email_message, mail_from, mail_list)
             
             # Show confirmation page
             return render(request, message_template, {
