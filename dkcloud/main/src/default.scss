@@ -1,0 +1,301 @@
+/* background-colors */
+$col-bg-main: hsla(0,0%,15%,1);
+$col-bg-article: hsla(0,0%,0%,0.3);
+$col-bg-header: hsla(0,0%,7%,1);
+$col-bg-medium: hsla(0,0%,24%,1);
+$col-bg-light: hsla(0,0%,32%,1);
+
+/* theme-colors */
+$col-primary: hsla(209,70%,41%,1);
+$col-primary-medium: hsla(209,100%,80%,1);
+$col-primary-light: hsla(208,100%,94%,1);
+$col-compliment: hsla(37,40%,50%,1);
+$col-compliment-light: hsla(37,100%,86%,1);
+
+/* fonts */
+$font-stack-primary: Arial,sans-serif;
+$font-stack-content: "Book Antiqua",serif;
+$font-size-small: 12px;
+$font-size-regular: 16px;
+$font-size-big: 22px;
+$font-size-huge: 36px;
+
+/* layout */
+$spacing-thin: 2px;
+$spacing-regular: 5px;
+$spacing-medium: 10px;
+$spacing-wide: 15px;
+$radius-standard: 2px;
+
+/* element-size */
+$header-height: 50px;
+$nav-height: 15px;
+$aside-width: 200px;
+
+/* fix box sizing and default padding + margins */
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+/* clearfix mixin */
+@mixin clearfix {
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+
+/* input box and inverse input box classes */
+.form {
+	input {
+		border-radius: $radius-standard;
+		border: none;
+		display: inline-block;
+	}
+	input:not([type="submit"]):not([type="file"]) {
+		padding: $spacing-thin $spacing-medium;
+	}
+	input:focus {
+		box-shadow: 0 0 3px $col-primary-light;
+	}
+	label {
+	    display: block;
+	}
+	.errorlist {
+	    background: red;
+	    list-style-type: none;
+	}
+}
+
+@mixin normal-form {
+	@extend .form;
+	input:not([type="submit"]):not([type="file"]) {
+		background-color: $col-bg-light;
+	}
+}
+
+@mixin inverse-form {
+	@extend .form;
+	input:not([type="submit"]):not([type="file"]) {
+		background-color: $col-bg-medium;
+		color: $col-compliment-light;
+	}
+}
+
+/* buttons */
+.button {
+	border-radius: 0;
+	border-width: 0px;
+	color: black;
+	padding: $spacing-thin $spacing-regular;
+}
+
+@mixin button-primary {
+	@extend .button;
+	background: linear-gradient($col-primary-medium, $col-primary);
+}
+
+@mixin button-secondary {
+	@extend .button;
+	background: linear-gradient($col-compliment-light, $col-compliment);
+}
+
+.button-primary {
+	@include button-primary;
+}
+
+.button-secondary {
+	@include button-secondary;
+}
+
+input[type=submit] {
+	@extend .button-primary;
+	border-radius: $radius-standard;
+}
+
+/* main body */
+body {
+	background-color: $col-bg-main;
+	color: $col-primary-light;
+	font: $font-size-regular $font-stack-primary;
+}
+
+/* highlighted box for test purposes only */
+.testbox {
+	background-color: red;
+	border: 1px solid yellow;
+}
+
+.container {
+	@include clearfix;
+	padding: $spacing-regular $spacing-wide 0 $spacing-wide;
+	width: 100%;
+}	
+
+/* header */
+.header {
+	@extend .container;
+	background-color: $col-bg-header;
+	min-height: $header-height;
+	position: fixed;
+	top: 0px;
+	z-index: 2;
+	border-bottom: 1px solid $col-primary;
+	
+	.logo {
+		font-size: $font-size-huge;
+		color: $col-primary;
+		font-weight: 700;
+		margin-bottom: $spacing-regular;
+		padding-top: ($header-height - $spacing-regular - 36px)/2;
+		display: inline-block;
+		float: left;
+	}
+	
+	.user-button-area {
+		margin-bottom: $spacing-regular;
+		height: 36px;
+		padding-top: ($header-height - $spacing-regular - 18px)/2;
+		display: inline-block;
+		float: right;
+
+		a {
+		    @include button-primary;
+		    text-decoration: none;
+		    height: 18px;
+		    border-radius: $radius-standard;
+		}
+
+		a:hover {
+		    @include button-secondary;
+		    border-radius: $radius-standard;
+		}
+	}	
+}
+
+/* navigation */
+.nav {
+	@extend .container;
+	z-index: 1;
+	
+	a {
+		text-decoration: none;
+		display: inline-block;
+		border-radius: 0px;
+		font-size: $font-size-small;
+	}
+}
+
+.backward-nav {
+	float: left;
+	margin-right: $spacing-medium;
+	margin-bottom: $spacing-regular;
+	a {
+		@include button-secondary;
+	}
+	a:last-child {
+		@include button-primary;
+	}
+	a:hover {
+		@include button-primary;
+	}
+}
+
+.forward-nav {
+	float: right;
+	margin-left: $spacing-medium;
+	a {
+		@include button-primary;
+	}
+	a:hover {
+		@include button-secondary;
+	}
+}
+
+.content {
+	@include clearfix;
+	position: relative;
+	top: $header-height;
+	background: url("../img/background.png") no-repeat center center fixed;
+	background-size: cover;
+	height: 100vh;
+}
+
+.section { 
+	@extend .container;
+	background-color: $col-bg-article;
+	padding: $spacing-medium $spacing-medium $spacing-regular $spacing-medium;
+	margin: $spacing-wide auto $spacing-wide auto;
+	max-width: 800px;
+	border-radius: 0 0 2*$spacing-regular 2*$spacing-regular;
+	
+}
+
+.mini-section {
+    @extend .section;
+    max-width:400px;
+}
+
+.aside-container {
+	@include clearfix;
+	width: $aside-width;
+	float: right;
+	display: inline-block;
+}
+
+.article-container {
+	@include clearfix;
+	margin-right: $spacing-regular + $aside-width;
+}
+
+.article {
+	background-color: $col-bg-medium;
+	line-height: 1.2;
+	border-radius: 0 0 $spacing-regular $spacing-regular;
+	margin-bottom: $spacing-regular;
+	h2,p,ul {
+		padding: $spacing-regular;
+	}
+	h2 {
+		background: linear-gradient($col-bg-medium, $col-bg-main);
+		width: 100%;
+		font-size: $font-size-big;
+		color: $col-primary-medium;
+	}
+	p,li {
+		font-family: $font-stack-content;
+		padding: $spacing-regular;
+	}
+	em {
+		color: $col-compliment;
+	}
+	a {
+		color: $col-primary-medium;
+	}
+	form {
+	    @include normal-form;
+	}
+}
+
+.aside {
+	@extend .article;
+	background-color: $col-bg-light;
+	overflow: hidden;
+	h2 {
+		color: $col-compliment;
+	}
+	li {
+		list-style-type: none;
+		padding: 0 $spacing-regular;
+		margin-bottom: $spacing-regular;
+	}
+	form {
+		@include inverse-form;
+	}
+	input {
+		width: $aside-width - 4*$spacing-regular;
+	}
+}

@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<section class="section">
+    <article class="article">
+		<h2>{{ node.long_name }}</h2>
+        {% if node.link %}
+        <h2>{{ node.link }}</h2>
+        {% endif %}
+		{{ node.content | safe }}
+	</article>
+</section>
+{% endblock %}

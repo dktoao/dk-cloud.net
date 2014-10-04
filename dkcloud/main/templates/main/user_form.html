@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<section class="mini-section">
+    <article class="article">
+    {% if form_title %}
+    <h2>{{ form_title }}</h2>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+		{{ form.as_p }}
+        {% if button_caption %}
+        <p><input type="submit" action="login.html" value="{{ button_caption}}"/></p>
+        {% else %}
+        <p><input type="submit" action="login.html" value="Submit"/></p>
+        {% endif %}
+    </form>
+	</article>
+</section>
+{% endblock %}

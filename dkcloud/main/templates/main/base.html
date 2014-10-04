@@ -1,0 +1,67 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>dk-cloud.net</title>
+<link type="text/css" rel="stylesheet" href="{% static 'main/css/default.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'main/css/normalize.css' %}">
+<link rel="shortcut icon" href="{% static 'main/img/FEA_D.ico' %}">
+</head>
+
+<body>
+<header class="header">
+	<img class="logo" src="{% static 'main/img/dk-cloud-logo.png' %}" alt="DK-CLOUD.NET">
+    <div class="user-button-area">
+    {% if username %}
+        <a href="{% url 'password_change' %}">Change Password</a>
+        <a href="{% url 'logout' %}">Logout (User: {{ username }})</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    </div>
+</header>
+
+<div class="content">
+<nav class="nav">
+	<div class="backward-nav">
+        <a href="{% url 'index' %}">Home</a>
+    {% if backward_nav_items %}
+    {% for item in backward_nav_items %}
+        {% if node.direct_link %}
+        <a href="{{node.link}}">{{item.short_name}}</a>
+        {% else %}
+	    <a href="{% url 'nodeview' item.id %}">{{item.short_name}}</a>
+	    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% if node %}
+        <a href="{% url 'nodeview' node.id %}">{{node.short_name}}</a>
+    {% endif %}
+	</div>
+	<div class="forward-nav">
+    {% if forward_nav_items %}
+    {% for item in forward_nav_items %}
+        <a href="{% url 'nodeview' item.id %}">{{item.short_name}}</a>
+    {% endfor %}
+    {% endif %}
+	</div>
+</nav>
+{% block content %}
+<section class="section">
+	<article class="article">
+		<h2>Welcome to the DK Cloud Computing Platform</h2>
+        <p>DK Cloud is a server serving applications via a powerful Open Source Python scientific software stack and the
+        Django web framework.  Custom applications for academia and industry are available by request.</p>
+        <p>Please <a href="login">login</a> to access application that are available to you.  If you do not have login credentials
+        and would like to access one or more of the applications on this site you can contact the webmaster
+        by following the contact link in the navigation bar above.</p>
+	</article>
+</section>
+</div>
+{% endblock %}
+<script src="{% static 'main/js/jquery-2.1.1.js' %}" type="text/javascript"></script>
+<script src="{% static 'main/js/main.js' %}" type="text/javascript"></script>
+</body>
+</html>

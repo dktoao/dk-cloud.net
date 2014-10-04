@@ -5,8 +5,20 @@
 # Secret Settings file
 /dkcloud/dkcloud/secrets.py
 
+# Collected Static Files
+/static/
+
 # Backup files
 *.backup
 
 # Cache files
 __pycache__/
+
+# Migrations
+*migrations/
+
+# IDE Files
+/.idea
+
+# Sass Cache
+.sass-cache/
