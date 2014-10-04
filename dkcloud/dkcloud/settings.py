@@ -9,6 +9,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Secrets file
 from . import secrets
 
+# Default Settings
+from django.conf import global_settings
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = secrets.SECRET_KEY
 
