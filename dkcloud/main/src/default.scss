@@ -231,6 +231,10 @@ body {
 	margin: $spacing-wide auto $spacing-wide auto;
 	max-width: 800px;
 	border-radius: 0 0 2*$spacing-regular 2*$spacing-regular;
+
+	a {
+	    @include button-primary;
+	}
 	
 }
 
