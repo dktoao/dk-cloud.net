@@ -3,11 +3,12 @@
 {% block content %}
 <section class="section">
     <article class="article">
-		<h2>{{ node.long_name }}</h2>
-		{{ node.content | safe }}
-        {% if node.link %}
-        <h2><a class="button_primary" href="{{ node.link }}">Access Application</a></h2>
-        {% endif %}
+	<h2>{{ node.long_name }}
+	{% if node.link %}
+	<a href="{{ node.link }}">APPLICATION</a>
+	{% endif %}
+	</h2>
+	{{ node.content | safe }}
 	</article>
 </section>
 {% endblock %}
