@@ -15,6 +15,6 @@ urlpatterns = patterns('',
         'contact_template': 'main/user_form.html',
         'message_template': 'main/user_message.html',
         'mail_from': 'robomailer@dk-cloud.net',
-        'mail_list': ['daniel.kuntz@dk-cloud.net',],
+        'mail_list': ['dkuntz417@gmail.com',],
         }),
 )

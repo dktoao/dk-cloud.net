@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 
 from .forms import ContactForm
@@ -26,7 +25,7 @@ def contact_page(request, contact_template, message_template, mail_list, mail_fr
             email_message = '''
                 {0}\n\n
                 {1}\n
-                UserN: {2}
+                UserN: {2}\n
                 Email: {3}\n
                 Phone: {4}\n
             '''.format(message, name, request.user.username, email, phone_number)
@@ -45,9 +44,7 @@ def contact_page(request, contact_template, message_template, mail_list, mail_fr
                 'username': request.user.username,
                 'form': form,
             })
-            
-        
-    
+
     # if message was not submitted    
     else:
         form = ContactForm()
