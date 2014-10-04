@@ -234,6 +234,9 @@ body {
 
 	a {
 	    @include button-primary;
+	    text-decoration: none;
+	    color: black;
+	    border-radius: $radius-standard;
 	}
 	
 }
