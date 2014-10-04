@@ -79,6 +79,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/static/'
 
 # Email Settings
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = secrets.MAIL_USER
 EMAIL_HOST_PASSWORD = secrets.MAIL_PASSWORD
