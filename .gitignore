@@ -1,0 +1,12 @@
+# Python compiled file extensions
+*.pyc
+*.pyo
+
+# Secret Settings file
+/dkcloud/dkcloud/secrets.py
+
+# Backup files
+*.backup
+
+# Cache files
+__pycache__/
