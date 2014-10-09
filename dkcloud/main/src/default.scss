@@ -50,12 +50,15 @@ $aside-width: 200px;
 
 /* input box and inverse input box classes */
 .form {
-	input {
+	input,textarea {
 		border-radius: $radius-standard;
 		border: none;
 		display: inline-block;
 	}
-	input:not([type="submit"]):not([type="file"]) {
+	textarea {
+	    width: 100%;
+	}
+	input:not([type="submit"]):not([type="file"]),textarea {
 		padding: $spacing-thin $spacing-medium;
 	}
 	input:focus {

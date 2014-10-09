@@ -11,11 +11,13 @@
 
 /* clearfix mixin */
 /* input box and inverse input box classes */
-.form input, .article form input, .aside form input {
+.form input, .article form input, .aside form input, .form textarea, .article form textarea, .aside form textarea {
   border-radius: 2px;
   border: none;
   display: inline-block; }
-.form input:not([type="submit"]):not([type="file"]), .article form input:not([type="submit"]):not([type="file"]), .aside form input:not([type="submit"]):not([type="file"]) {
+.form textarea, .article form textarea, .aside form textarea {
+  width: 100%; }
+.form input:not([type="submit"]):not([type="file"]), .article form input:not([type="submit"]):not([type="file"]), .aside form input:not([type="submit"]):not([type="file"]), .form textarea, .article form textarea, .aside form textarea {
   padding: 2px 10px; }
 .form input:focus, .article form input:focus, .aside form input:focus {
   box-shadow: 0 0 3px #e0f1ff; }
