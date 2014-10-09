@@ -181,7 +181,7 @@ body {
     color: #b38b4d; }
   .article a, .aside a {
     color: #99ceff; }
-  .article form input:not([type="submit"]):not([type="file"]), .aside form input:not([type="submit"]):not([type="file"]) {
+  .article form input:not([type="submit"]):not([type="file"]), .aside form input:not([type="submit"]):not([type="file"]), .article form textarea, .aside form textarea {
     background-color: #525252; }
 
 .aside {
@@ -193,8 +193,8 @@ body {
     list-style-type: none;
     padding: 0 5px;
     margin-bottom: 5px; }
-  .aside form input:not([type="submit"]):not([type="file"]) {
+  .aside form input:not([type="submit"]):not([type="file"]), .aside form textarea {
     background-color: #3d3d3d;
     color: #ffe4b8; }
-  .aside input {
+  .aside input, .aside textarea {
     width: 180px; }

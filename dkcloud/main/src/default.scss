@@ -72,14 +72,14 @@ $aside-width: 200px;
 
 @mixin normal-form {
 	@extend .form;
-	input:not([type="submit"]):not([type="file"]) {
+	input:not([type="submit"]):not([type="file"]), textarea {
 		background-color: $col-bg-light;
 	}
 }
 
 @mixin inverse-form {
 	@extend .form;
-	input:not([type="submit"]):not([type="file"]) {
+	input:not([type="submit"]):not([type="file"]), textarea {
 		background-color: $col-bg-medium;
 		color: $col-compliment-light;
 	}
@@ -304,7 +304,7 @@ body {
 	form {
 		@include inverse-form;
 	}
-	input {
+	input, textarea {
 		width: $aside-width - 4*$spacing-regular;
 	}
 }
