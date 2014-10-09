@@ -23,11 +23,11 @@ def contact_page(request, contact_template, message_template, mail_list, mail_fr
             
             # Send an email to recipients on the mail_list
             email_message = '''
-                {0}\n
-                {1}
-                UserN: {2}
-                Email: {3}
-                Phone: {4}
+            {0}\n
+            {1}
+            UserN: {2}
+            Email: {3}
+            Phone: {4}
             '''.format(message, name, request.user.username, email, phone_number)
             send_mail('DK Cloud Contact: ' + name, email_message, mail_from, mail_list)
             

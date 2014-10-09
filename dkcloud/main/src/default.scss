@@ -233,11 +233,15 @@ body {
 	border-radius: 0 0 2*$spacing-regular 2*$spacing-regular;
 
     h2 {
+        display: inline-block;
         a {
             @include button-primary;
             text-decoration: none;
             color: black;
             border-radius: $radius-standard;
+            font-size: $font-size-regular;
+            display: inline-block;
+            float: right;
         }
 	}
 }
